@@ -13,10 +13,12 @@ import java.io.Serializable;
 @Embeddable
 public class SeatComposite implements Serializable  {
 
-    @Column(name = "row_number")
-    private String row_number;
-
     @Column(name = "seat_row")
     private Character seat_row;
+
+    @Column(name = "seat_number")
+    private Integer seat_number;
+
+
 
 }

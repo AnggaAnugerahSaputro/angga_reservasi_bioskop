@@ -1,6 +1,7 @@
 package org.binar.bioskop.challenge4.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +28,12 @@ public class OrderEntity {
     @Column(name = "order_time")
     private LocalDateTime order_time;
 
+    @Column(name = "quantity")
+    private Integer quantity;
+
+    @Column(name = "price")
+    private BigDecimal price;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity userEntitiess;
@@ -35,9 +42,9 @@ public class OrderEntity {
     @JoinColumn(name = "schedule_id")
     private ScheduleEntity scheduleEntities;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumns({@JoinColumn(name = "row_number"), @JoinColumn(name = "seat_number"),})
-    private SeatEntity seatEntities;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumns({@JoinColumn(name = "seat_row"), @JoinColumn(name = "seat_number"), @JoinColumn(name = "studio_id")})
+//    private SeatEntity seatEntities;
 
     @OneToMany(mappedBy = "orderEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<OrderDetailEntity> orderDetailEntities;

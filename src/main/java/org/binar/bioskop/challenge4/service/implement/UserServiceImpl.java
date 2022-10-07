@@ -28,8 +28,10 @@ public class UserServiceImpl implements UserService {
     public UserEntity update(Long user_id, UserEntity userEntity) {
         UserEntity result = findById(user_id);
         if (result != null) {
+            result.setNameUser(userEntity.getNameUser());
             result.setUsername(userEntity.getUsername());
             result.setEmailaddress(userEntity.getEmailaddress());
+            result.setPhone_number(userEntity.getPhone_number());
             result.setPassword(userEntity.getPassword());
             userRepository.saveAndFlush(result);
         }

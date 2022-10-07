@@ -1,11 +1,17 @@
 package org.binar.bioskop.challenge4.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.binar.bioskop.challenge4.entity.FilmEntity;
 import org.binar.bioskop.challenge4.entity.ScheduleEntity;
 import org.binar.bioskop.challenge4.request.ScheduleRequest;
 import org.binar.bioskop.challenge4.respon.Respon;
 import org.binar.bioskop.challenge4.service.FilmService;
+import org.binar.bioskop.challenge4.service.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,70 +20,153 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
 
+    @Autowired
+    private SeatService seatService;
+
+    @Operation(summary = "this is to create film from Database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "create film into from Database User",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Request Not Avilable",
+                    content = @Content)
+    })
     @PostMapping("/create")
-    public Respon create(@RequestBody FilmEntity filmEntity){
+    public ResponseEntity create(@RequestBody FilmEntity filmEntity){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
         ress.setData(filmService.create(filmEntity));
-        return ress;
+        return ResponseEntity.ok().body(ress);
     }
 
-
-
+    @Operation(summary = "this is to update films from Database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "update films into from Database User",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Request Not Avilable",
+                    content = @Content)
+    })
     @PutMapping("/update/{film_code}")
-    public Respon update(@PathVariable String film_code, @RequestBody FilmEntity filmEntity){
+    public ResponseEntity update(@PathVariable String film_code, @RequestBody FilmEntity filmEntity){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
         ress.setData(filmService.update(film_code, filmEntity));
-        return ress;
+        return ResponseEntity.ok().body(ress);
     }
 
 
+    @Operation(summary = "this is to Find All films from Database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "Find All films into from Database User",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Request Not Avilable",
+                    content = @Content)
+    })
     @GetMapping("/all")
-    public Respon findAll(){
+    public ResponseEntity findAll(){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
         ress.setData(filmService.findAll());
-        return ress;
+        return ResponseEntity.ok().body(ress);
     }
 
 
+    @Operation(summary = "this is to Delete films from Database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "delete films into from Database User",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Request Not Avilable",
+                    content = @Content)
+    })
     @DeleteMapping("/delete/{film_code}")
-    public Respon delete(@PathVariable String film_code){
+    public ResponseEntity delete(@PathVariable String film_code){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
         ress.setData(filmService.delete(film_code));
-        return ress;
+        return ResponseEntity.ok().body(ress);
     }
 
+    @Operation(summary = "this is to take the currently showing films from Database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "get films status showing into from Database User",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Request Not Avilable",
+                    content = @Content)
+    })
     @GetMapping("/now_playing")
-    public Respon getNowPlaying(){
+    public ResponseEntity getNowPlaying(){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
         ress.setData(filmService.getFilmNow());
-        return ress;
+        return ResponseEntity.ok().body(ress);
     }
 
+
+    @Operation(summary = "this is to get schedules films from Database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "get schedules films into from Database User",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Request Not Avilable",
+                    content = @Content)
+    })
     @GetMapping("/schedule_film")
-    public Respon getScheduleFilm(@RequestParam String film_code){
+    public ResponseEntity getScheduleFilm(@RequestParam String film_code){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
         ress.setData(filmService.getFindSchedule(film_code));
-        return ress;
+        return ResponseEntity.ok().body(ress);
     }
 
+    @Operation(summary = "this is to create schedules film from Database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "create schedules films into from Database User",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Request Not Avilable",
+                    content = @Content)
+    })
     @PostMapping("/set_schedule")
-    public Respon setScheduleFilm(@RequestBody ScheduleRequest scheduleRequest){
+    public ResponseEntity setScheduleFilm(@RequestBody ScheduleRequest scheduleRequest){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
         ress.setData(filmService.setSchedules(scheduleRequest));
-        return ress;
+        return ResponseEntity.ok().body(ress);
+    }
+
+    @Operation(summary = "this is to get All Seat from Database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "get All Seat into from Database User",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Request Not Avilable",
+                    content = @Content)
+    })
+    @GetMapping("/getAllSeat")
+    public ResponseEntity findAllSeats(){
+        Respon ress = new Respon();
+        ress.setResponCode("200");
+        ress.setMessage("succes");
+        ress.setData(seatService.findAllSeat());
+        return ResponseEntity.ok().body(ress);
     }
 }

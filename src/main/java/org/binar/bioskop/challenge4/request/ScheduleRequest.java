@@ -16,6 +16,8 @@ public class ScheduleRequest {
 
     private String film_code;
 
+    private String film_name;
+
     private LocalDate show_date;
 
     private LocalTime start_time;

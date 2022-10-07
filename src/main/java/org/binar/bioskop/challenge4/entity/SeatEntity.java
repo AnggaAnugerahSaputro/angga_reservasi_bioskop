@@ -1,24 +1,30 @@
 package org.binar.bioskop.challenge4.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
+@Getter
+@Setter
 @Entity
-@Table(name = "Seats")
+@Table(name = "seats")
 public class SeatEntity {
 
     @EmbeddedId
+    @Column(name = "seat_id")
     private SeatComposite seat_id;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @Column(name = "studio_id")
-    private List<StudioEntity> studioEntities;
+    @Column(name = "status_seat")
+    private Boolean status_seat;
+
+
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @Column(name = "studio_id")
+//    private List<StudioEntity> studioEntities;
+
 
 }

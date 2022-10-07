@@ -1,0 +1,162 @@
+[
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "A",
+      "seat_number": 1,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "A",
+      "seat_number": 2,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "A",
+      "seat_number": 3,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "A",
+      "seat_number": 4,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "A",
+      "seat_number": 5,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "B",
+      "seat_number": 1,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "B",
+      "seat_number": 2,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "B",
+      "seat_number": 3,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "B",
+      "seat_number": 4,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "B",
+      "seat_number": 5,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "C",
+      "seat_number": 1,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "C",
+      "seat_number": 2,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "C",
+      "seat_number": 3,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "C",
+      "seat_number": 4,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "C",
+      "seat_number": 5,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "D",
+      "seat_number": 1,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "D",
+      "seat_number": 2,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "D",
+      "seat_number": 3,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "D",
+      "seat_number": 4,
+      "status_seat": true
+    }
+  },
+  {
+    "_class": "org.binar.bioskop.challenge4.entity.SeatEntity",
+    "seat_id": {
+      "seat_row": "D",
+      "seat_number": 5,
+      "status_seat": true
+    }
+  }
+]

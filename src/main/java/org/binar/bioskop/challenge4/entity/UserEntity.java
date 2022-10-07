@@ -16,11 +16,17 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long user_id;
 
+    @Column(name = "name_user")
+    private String nameUser;
+
     @Column(name = "username")
     private String username;
 
     @Column(name = "emailaddress")
     private String emailaddress;
+
+    @Column(name = "phone_number")
+    private String phone_number;
 
     @Column(name = "password")
     private String password;

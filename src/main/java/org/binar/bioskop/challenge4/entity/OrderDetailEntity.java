@@ -5,6 +5,9 @@ import lombok.Setter;
 import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -16,8 +19,14 @@ public class OrderDetailEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String orderDetail_id;
 
-    @Column
-    private Integer order_qty;
+    @Column(name = "total_price")
+    private BigDecimal total_price;
+
+    @Column(name = "created_at")
+    private LocalTime created_at;
+
+    @Column(name = "updated_at")
+    private LocalDate update_at;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")

@@ -26,22 +26,27 @@ public class ScheduleEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer  schedule_id;
 
-    @Column
+    @Column(name = "show_date")
     private LocalDate show_date;
 
-    @Column
+    @Column(name = "start_time")
     private LocalTime start_time; // waktu mulai
 
-    @Column
+    @Column(name = "end_time")
     private LocalTime end_time; // waktu selesai
 
-    @Column
+    @Column(name = "price")
     private BigDecimal price; // harga tiket
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "film_code")
     private FilmEntity filmEntity;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "studio_id")
+    private StudioEntity studioEntity;
 
 
 }

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MovieJasper" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="240184c5-94ed-411e-b92b-23a295b7484a">
+    <parameter name="name" class="java.lang.String"/>
+    <parameter name="film" class="java.lang.String"/>
+    <parameter name="showdate" class="java.lang.String"/>
+    <parameter name="startTime" class="java.lang.String"/>
+    <parameter name="endTime" class="java.lang.String"/>
+    <parameter name="seatRow" class="java.lang.String"/>
+    <parameter name="seatNumber" class="java.lang.String"/>
+    <parameter name="studioName" class="java.lang.String" isForPrompting="false"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="153" splitType="Stretch">
+            <staticText>
+                <reportElement x="160" y="0" width="330" height="90" uuid="e4d9d340-010b-467c-ae47-36843d58e51a"/>
+                <textElement>
+                    <font fontName="Arial Black" size="60"/>
+                </textElement>
+                <text><![CDATA[BIOSKOP]]></text>
+            </staticText>
+            <image>
+                <reportElement x="0" y="0" width="140" height="119" uuid="1b0acbd2-949d-48b9-b648-57ad2875c1c8"/>
+                <imageExpression><![CDATA["./image/logobioskop.png"]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement x="410" y="110" width="150" height="30" uuid="dd9808e3-5b11-400f-8e2a-7322d4ab6b03"/>
+                <textElement>
+                    <font fontName="Arial Black" size="15"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{studioName}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="300" y="110" width="100" height="30" uuid="09cd5d61-2275-41ef-a210-47877349c55e"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <text><![CDATA[Studio Name]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="26" splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="320" splitType="Stretch">
+            <textField>
+                <reportElement x="290" y="10" width="100" height="30" uuid="71797caf-3a07-4a41-b990-eb4239028fbc"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="290" y="51" width="100" height="30" uuid="a39bfdef-671f-4cc7-b422-0eddac63b32a"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{film}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="290" y="90" width="100" height="30" uuid="d902ce05-3714-481c-8ab6-4ea9ea364f66"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{showdate}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="292" y="130" width="100" height="30" uuid="7fdd681c-be38-48e3-927b-7ff4ec0755fc"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{startTime}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="290" y="170" width="100" height="30" uuid="d0566876-6c6e-410c-a601-0a80b1697cf6"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{endTime}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="292" y="210" width="100" height="30" uuid="b4ac816a-40bf-430d-91ac-40c383fec075"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{seatRow}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="292" y="250" width="128" height="30" uuid="8988b04b-c7cf-49ce-913e-87f4a69264d6"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{seatNumber}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="160" y="10" width="100" height="30" uuid="58aebcdc-6ece-4120-a1f1-e3e208c97883"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <text><![CDATA[Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="160" y="50" width="100" height="30" uuid="7c3741c1-5efc-4002-ba96-b9b7d50faa33"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <text><![CDATA[Film]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="160" y="90" width="100" height="30" uuid="100796ba-04a7-4378-bcd1-fabb0725578f"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <text><![CDATA[Show Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="160" y="130" width="100" height="30" uuid="40f64564-66b6-4627-a890-e03480af8af2"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <text><![CDATA[Start Time]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="160" y="170" width="100" height="30" uuid="d96e57f4-e522-4b2d-9e06-4991f5ff763c"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <text><![CDATA[End Time]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="160" y="210" width="100" height="30" uuid="e813e146-cbac-4b55-a456-275a60ff7fb9"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <text><![CDATA[Seat Row]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="160" y="250" width="100" height="30" uuid="3c94fd4e-1cda-4195-8422-38bb0a4c50a0"/>
+                <textElement>
+                    <font fontName="Arial Black" size="12"/>
+                </textElement>
+                <text><![CDATA[Seat Number]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <pageFooter>
+        <band height="54" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>

@@ -2,7 +2,6 @@ package org.binar.bioskop.challenge4.service.implement;
 
 import org.binar.bioskop.challenge4.entity.FilmEntity;
 import org.binar.bioskop.challenge4.entity.ScheduleEntity;
-import org.binar.bioskop.challenge4.entity.UserEntity;
 import org.binar.bioskop.challenge4.repository.FilmRepository;
 import org.binar.bioskop.challenge4.request.ScheduleRequest;
 import org.binar.bioskop.challenge4.service.FilmService;
@@ -34,6 +33,13 @@ public class FilmServiceImpl implements FilmService {
             System.out.println("Data film ada");
             result.setFilm_name(filmEntity.getFilm_name());
             result.setShow_status(filmEntity.getShow_status());
+            result.setGenre(filmEntity.getGenre());
+            result.setDescription(filmEntity.getDescription());
+            result.setDuration(filmEntity.getDuration());
+            result.setCountry(filmEntity.getCountry());
+            result.setLanguage(filmEntity.getLanguage());
+            result.setStart_date(filmEntity.getStart_date());
+            result.setEnd_date(filmEntity.getEnd_date());
             filmRepository.saveAndFlush(result);
         }else{
             System.out.println("Data film tidak masuk");

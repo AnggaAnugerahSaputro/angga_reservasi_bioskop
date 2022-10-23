@@ -1,6 +1,6 @@
 package org.binar.bioskop.challenge4.controller;
 
-import com.itextpdf.text.DocumentException;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -15,6 +15,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +41,8 @@ public class InvoiceController {
                     content = @Content)
     })
     @GetMapping("/downloadFile")
-    public ResponseEntity<?> fileDownloadJasper(@RequestParam(value = "filename") String filename) throws IOException, DocumentException, JRException {
+    @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
+    public ResponseEntity<?> fileDownloadJasper(@RequestParam(value = "filename") String filename) throws IOException,  JRException {
           try{
               FileDataDB fileDataDB = invoiceService.generateFileInvoice(filename);
               System.out.println(fileDataDB+"file ada");
@@ -48,7 +50,7 @@ public class InvoiceController {
               .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename\"" + filename + "\"")
               .body(new ByteArrayResource(fileDataDB.getData()));
           }catch(JRException e){
-              System.out.println("file not found: "+e.getMessage());
+              log.error("file not found" + e.getMessage());
               return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
           }
 

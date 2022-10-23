@@ -1,66 +1,82 @@
 package org.binar.bioskop.challenge4.service.implement;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.binar.bioskop.challenge4.entity.Role;
 import org.binar.bioskop.challenge4.entity.UserEntity;
+import org.binar.bioskop.challenge4.repository.RoleRepository;
 import org.binar.bioskop.challenge4.repository.UserRepository;
 import org.binar.bioskop.challenge4.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    UserRepository userRepository;
-
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    private final UserRepository userRepository;
 
     @Override
     public UserEntity create(UserEntity userEntity) {
+        logger.info("Saving new user {} to Database", userEntity.getName());
         userRepository.save(userEntity);
         return userEntity;
     }
 
     @Override
-    public UserEntity update(Long user_id, UserEntity userEntity) {
-        UserEntity result = findById(user_id);
+    public UserEntity update(Long id, UserEntity userEntity) {
+        UserEntity result = findById(id);
         if (result != null) {
-            result.setNameUser(userEntity.getNameUser());
+            result.setName(userEntity.getName());
             result.setUsername(userEntity.getUsername());
-            result.setEmailaddress(userEntity.getEmailaddress());
-            result.setPhone_number(userEntity.getPhone_number());
+            result.setEmail(userEntity.getEmail());
             result.setPassword(userEntity.getPassword());
             userRepository.saveAndFlush(result);
+        }else {
+            logger.error("Data user not found");
         }
         return result;
     }
 
     @Override
-    public Boolean delete(Long user_id) {
-        final UserEntity result = findById(user_id);
+    public Boolean delete(Long id) {
+        final UserEntity result = findById(id);
         if (result != null) { // jika tidak null delete
             // hard delete
-            userRepository.deleteById(user_id);
+            userRepository.deleteById(id);
             return true; // true jika berhasil
+        }else {
+            logger.error("Data user not found");
         }
+
         return false;
 //         userRepository.findById(user_id);
     }
 
     @Override
     public List<UserEntity> findAll() {
+        logger.info("Fetching data user from database");
         return userRepository.findAll();
     }
 
     @Override
-    public UserEntity findById(Long user_id) {
-        Optional<UserEntity> result = userRepository.findById(user_id);
+    public UserEntity findById(Long id) {
+        logger.info("Fetching data user by id {}", id);
+        Optional<UserEntity> result = userRepository.findById(id);
         if (result.isPresent()) {  // jika misal ada
             return result.get();
+        }else {
+            logger.error("Data user not found");
         }
         return null;
     }
+
 }

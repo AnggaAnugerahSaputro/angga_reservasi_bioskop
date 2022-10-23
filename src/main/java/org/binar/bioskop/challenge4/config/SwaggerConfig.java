@@ -11,7 +11,7 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI reservasiBioskopOpenAPI(){
         return new OpenAPI()
-                .info(new Info().title("MyBioskop Reservasi Open API")
+                .info(new Info().title("Bioskop Reservasi Open API")
                 );
     }
 }

@@ -16,15 +16,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
 @Slf4j
 @RestController
+@CrossOrigin(maxAge = 3600)
 @RequestMapping("/invoice")
 public class InvoiceController {
 
@@ -42,6 +40,7 @@ public class InvoiceController {
     })
     @GetMapping("/downloadFile")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
+    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity<?> fileDownloadJasper(@RequestParam(value = "filename") String filename) throws IOException,  JRException {
           try{
               FileDataDB fileDataDB = invoiceService.generateFileInvoice(filename);

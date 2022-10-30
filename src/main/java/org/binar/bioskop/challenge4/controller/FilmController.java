@@ -35,7 +35,6 @@ public class FilmController {
     })
     @PostMapping("/create")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity create(@RequestBody FilmEntity filmEntity){
         Respon ress = new Respon();
         ress.setResponCode("200");
@@ -55,7 +54,6 @@ public class FilmController {
     })
     @PutMapping("/update/{film_code}")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity update(@PathVariable String film_code, @RequestBody FilmEntity filmEntity){
         Respon ress = new Respon();
         ress.setResponCode("200");
@@ -75,7 +73,6 @@ public class FilmController {
                     content = @Content)
     })
     @GetMapping("/all")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
 //    @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
     public ResponseEntity findAll(){
         Respon ress = new Respon();
@@ -97,7 +94,6 @@ public class FilmController {
     })
     @DeleteMapping("/delete/{film_code}")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity delete(@PathVariable String film_code){
         Respon ress = new Respon();
         ress.setResponCode("200");
@@ -117,7 +113,6 @@ public class FilmController {
     })
     @GetMapping("/now_playing")
     @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity getNowPlaying(){
         Respon ress = new Respon();
         ress.setResponCode("200");
@@ -138,7 +133,6 @@ public class FilmController {
     })
     @GetMapping("/schedule_film")
     @PreAuthorize("hasAnyRole('ADMIN', 'CUSTOMER')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity getScheduleFilm(@RequestParam String film_code){
         Respon ress = new Respon();
         ress.setResponCode("200");
@@ -158,7 +152,6 @@ public class FilmController {
     })
     @PostMapping("/set_schedule")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity setScheduleFilm(@RequestBody ScheduleRequest scheduleRequest){
         Respon ress = new Respon();
         ress.setResponCode("200");
@@ -178,7 +171,6 @@ public class FilmController {
     })
     @GetMapping("/getAllSeat")
     @PreAuthorize("hasRole('ADMIN' or hasRole('CUSTOMER'))")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity findAllSeats(){
         Respon ress = new Respon();
         ress.setResponCode("200");

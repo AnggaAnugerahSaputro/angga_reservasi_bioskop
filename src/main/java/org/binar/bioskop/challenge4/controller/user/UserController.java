@@ -74,7 +74,6 @@ public class UserController {
     })
     @PostMapping("/create")
     @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity create(@RequestBody UserEntity userEntity){
        Respon ress = new Respon();
        ress.setResponCode("200");
@@ -94,7 +93,6 @@ public class UserController {
     })
     @PutMapping("/update/{id}")
     @PreAuthorize("hasRole('CUSTOMER')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity update(@PathVariable Long id, @RequestBody UserEntity userEntity){
         Respon ress = new Respon();
         ress.setResponCode("200");
@@ -115,7 +113,6 @@ public class UserController {
 
     @GetMapping("/all")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity findAll(){
         Respon ress = new Respon();
         ress.setResponCode("200");
@@ -135,7 +132,6 @@ public class UserController {
     })
     @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')" )
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity delete(@PathVariable Long id){
         Respon ress = new Respon();
         ress.setResponCode("200");
@@ -154,7 +150,6 @@ public class UserController {
                     content = @Content)
     })
     @PostMapping("/signin")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
@@ -189,7 +184,6 @@ public class UserController {
                     content = @Content)
     })
     @PostMapping("/signup")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterRequest signUpRequest) {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity

@@ -40,7 +40,6 @@ public class InvoiceController {
     })
     @GetMapping("/downloadFile")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
-    @CrossOrigin(origins = "https://anggareservasibioskop-production.up.railway.app/swagger-ui/index.html#/", allowedHeaders = "Requestor-type")
     public ResponseEntity<?> fileDownloadJasper(@RequestParam(value = "filename") String filename) throws IOException,  JRException {
           try{
               FileDataDB fileDataDB = invoiceService.generateFileInvoice(filename);

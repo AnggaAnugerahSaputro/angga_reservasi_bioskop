@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/users")
 public class UserController {
 

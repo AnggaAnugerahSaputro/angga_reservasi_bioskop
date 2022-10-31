@@ -22,7 +22,7 @@ import java.io.IOException;
 
 @Slf4j
 @RestController
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/invoice")
 public class InvoiceController {
 

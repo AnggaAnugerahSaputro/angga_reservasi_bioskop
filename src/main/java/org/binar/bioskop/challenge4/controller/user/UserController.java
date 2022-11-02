@@ -170,7 +170,9 @@ public class UserController {
                 userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));
+        log.info("Login succes");
         return ResponseEntity.ok().body(ress);
+
 
     }
 

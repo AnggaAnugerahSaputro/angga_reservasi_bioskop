@@ -6,7 +6,6 @@ import org.binar.bioskop.challenge4.respon.ERole;
 import javax.persistence.*;
 
 import static javax.persistence.EnumType.STRING;
-import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Getter

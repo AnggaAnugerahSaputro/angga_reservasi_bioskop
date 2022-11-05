@@ -2,7 +2,6 @@ package org.binar.bioskop.challenge4.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -17,19 +16,19 @@ public class OrderDetailEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String orderDetail_id;
+    private String orderDetailId;
 
     @Column(name = "total_price")
-    private BigDecimal total_price;
+    private BigDecimal totalPrice;
 
     @Column(name = "created_at")
-    private LocalTime created_at;
+    private LocalTime createdAt;
 
     @Column(name = "updated_at")
-    private LocalDate update_at;
+    private LocalDate updateAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "orderId")
     private OrderEntity orderEntity;
 
 }

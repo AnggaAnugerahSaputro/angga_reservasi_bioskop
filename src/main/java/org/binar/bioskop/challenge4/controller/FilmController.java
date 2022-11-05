@@ -52,13 +52,13 @@ public class FilmController {
                     description = "Request Not Avilable",
                     content = @Content)
     })
-    @PutMapping("/update/{film_code}")
+    @PutMapping("/update/{filmCode}")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity update(@PathVariable String film_code, @RequestBody FilmEntity filmEntity){
+    public ResponseEntity update(@PathVariable String filmCode, @RequestBody FilmEntity filmEntity){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
-        ress.setData(filmService.update(film_code, filmEntity));
+        ress.setData(filmService.update(filmCode, filmEntity));
         return ResponseEntity.ok().body(ress);
     }
 
@@ -92,13 +92,13 @@ public class FilmController {
                     description = "Request Not Avilable",
                     content = @Content)
     })
-    @DeleteMapping("/delete/{film_code}")
+    @DeleteMapping("/delete/{filmCode}")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity delete(@PathVariable String film_code){
+    public ResponseEntity delete(@PathVariable String filmCode){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
-        ress.setData(filmService.delete(film_code));
+        ress.setData(filmService.delete(filmCode));
         return ResponseEntity.ok().body(ress);
     }
 
@@ -133,11 +133,11 @@ public class FilmController {
     })
     @GetMapping("/schedule_film")
     @PreAuthorize("hasAnyRole('ADMIN', 'CUSTOMER')")
-    public ResponseEntity getScheduleFilm(@RequestParam String film_code){
+    public ResponseEntity getScheduleFilm(@RequestParam String filmCode){
         Respon ress = new Respon();
         ress.setResponCode("200");
         ress.setMessage("succes");
-        ress.setData(filmService.getFindSchedule(film_code));
+        ress.setData(filmService.getFindSchedule(filmCode));
         return ResponseEntity.ok().body(ress);
     }
 

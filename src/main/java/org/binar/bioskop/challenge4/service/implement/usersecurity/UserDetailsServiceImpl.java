@@ -2,8 +2,6 @@ package org.binar.bioskop.challenge4.service.implement.usersecurity;
 
 import org.binar.bioskop.challenge4.entity.UserEntity;
 import org.binar.bioskop.challenge4.repository.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

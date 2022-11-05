@@ -1,15 +1,12 @@
 package org.binar.bioskop.challenge4.service.implement;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.binar.bioskop.challenge4.entity.Role;
+
 import org.binar.bioskop.challenge4.entity.UserEntity;
-import org.binar.bioskop.challenge4.repository.RoleRepository;
 import org.binar.bioskop.challenge4.repository.UserRepository;
 import org.binar.bioskop.challenge4.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,7 +38,7 @@ public class UserServiceImpl implements UserService {
             result.setPassword(userEntity.getPassword());
             userRepository.saveAndFlush(result);
         }else {
-            logger.error("Data user not found");
+            logger.error("Update Data user not found");
         }
         return result;
     }
@@ -56,9 +53,7 @@ public class UserServiceImpl implements UserService {
         }else {
             logger.error("Data user not found");
         }
-
         return false;
-//         userRepository.findById(user_id);
     }
 
     @Override

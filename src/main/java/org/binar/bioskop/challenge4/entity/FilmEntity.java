@@ -16,13 +16,13 @@ public class FilmEntity {
     @Id
     @Column(name = "film_code")
 //    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String film_code;
+    private String filmCode;
 
     @Column(name = "film_name")
-    private String film_name;
+    private String filmName;
 
     @Column(name = "film_status")
-    private Boolean show_status;
+    private Boolean showStatus;
 
     @Column(name = "genre")
     private String genre;
@@ -40,10 +40,10 @@ public class FilmEntity {
     private String language;
 
     @Column(name = "start_date")
-    private LocalDate start_date;
+    private LocalDate startDate;
 
     @Column(name = "end_date")
-    private LocalDate end_date;
+    private LocalDate endDate;
 
     @OneToMany(mappedBy = "filmEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<ScheduleEntity> scheduleEntities;

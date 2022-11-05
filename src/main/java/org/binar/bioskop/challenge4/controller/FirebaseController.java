@@ -8,9 +8,6 @@ import org.binar.bioskop.challenge4.service.firebase.model.FirebaseNote;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-
-
 @Controller
 public class FirebaseController {
 

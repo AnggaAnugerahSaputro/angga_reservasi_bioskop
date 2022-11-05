@@ -19,6 +19,4 @@ public class SeatComposite implements Serializable  {
     @Column(name = "seat_number")
     private Integer seat_number;
 
-
-
 }

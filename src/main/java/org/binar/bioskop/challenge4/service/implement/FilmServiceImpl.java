@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Service
 public class FilmServiceImpl implements FilmService {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(FilmServiceImpl.class);
     @Autowired
     FilmRepository filmRepository;
 
@@ -30,31 +30,31 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public FilmEntity update(String film_code, FilmEntity filmEntity) {
-        FilmEntity result = findById(film_code);
+    public FilmEntity update(String filmCode, FilmEntity filmEntity) {
+        FilmEntity result = findById(filmCode);
         if (result != null) {
-            logger.info("Movie data available");
-            result.setFilm_name(filmEntity.getFilm_name());
-            result.setShow_status(filmEntity.getShow_status());
+            logger.info("Update Movie data available");
+            result.setFilmName(filmEntity.getFilmName());
+            result.setShowStatus(filmEntity.getShowStatus());
             result.setGenre(filmEntity.getGenre());
             result.setDescription(filmEntity.getDescription());
             result.setDuration(filmEntity.getDuration());
             result.setCountry(filmEntity.getCountry());
             result.setLanguage(filmEntity.getLanguage());
-            result.setStart_date(filmEntity.getStart_date());
-            result.setEnd_date(filmEntity.getEnd_date());
+            result.setStartDate(filmEntity.getStartDate());
+            result.setEndDate(filmEntity.getEndDate());
             filmRepository.saveAndFlush(result);
         }else{
-            logger.info("Movie data available");
+            logger.error("Movie data is not available");
         }
         return result;
     }
     @Override
-    public Boolean delete(String film_code) {
-        final FilmEntity result = findById(film_code);
+    public Boolean delete(String filmCode) {
+        final FilmEntity result = findById(filmCode);
         if (result != null) { // jika tidak null delete
             logger.info("Delete movie data from database");
-            filmRepository.deleteById(film_code);
+            filmRepository.deleteById(filmCode);
             return true; // true jika berhasil
         }else {
             logger.error("movie data not available");
@@ -69,8 +69,8 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public FilmEntity findById(String film_code) {
-        Optional<FilmEntity> result = filmRepository.findById(film_code);
+    public FilmEntity findById(String filmCode) {
+        Optional<FilmEntity> result = filmRepository.findById(filmCode);
         if (result.isPresent()) {  // jika misal ada
             logger.info("Movie data available");
             return result.get();
@@ -82,7 +82,7 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public List<FilmEntity> getFilmNow() {
-        List<FilmEntity> filmEntities = filmRepository.findAll().stream().filter(FilmEntity::getShow_status).collect(Collectors.toList());
+        List<FilmEntity> filmEntities = filmRepository.findAll().stream().filter(FilmEntity::getShowStatus).collect(Collectors.toList());
         if (filmEntities.isEmpty()){
             logger.info("Movie data available");
             return new ArrayList<>();
@@ -93,8 +93,8 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public FilmEntity getFindSchedule(String film_code) {
-        Optional<FilmEntity> result = filmRepository.findById(film_code);
+    public FilmEntity getFindSchedule(String filmCode) {
+        Optional<FilmEntity> result = filmRepository.findById(filmCode);
         if (result.isPresent()) {  // jika misal ada
             logger.info("Schedule Data available");
             return result.get();
@@ -106,14 +106,14 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public ScheduleEntity setSchedules(ScheduleRequest scheduleRequest) {
-        Optional<FilmEntity> result = filmRepository.findById(scheduleRequest.getFilm_code());
+        Optional<FilmEntity> result = filmRepository.findById(scheduleRequest.getFilmCode());
         if (result.isPresent()) {  // jika misal ada
             logger.info("Set schedule data available");
             FilmEntity filmEntity = result.get();
             ScheduleEntity scheduleEntity = new ScheduleEntity();
-            scheduleEntity.setShow_date(scheduleRequest.getShow_date());
-            scheduleEntity.setStart_time(scheduleRequest.getStart_time());
-            scheduleEntity.setEnd_time(scheduleRequest.getEnd_time());
+            scheduleEntity.setShowDate(scheduleRequest.getShowDate());
+            scheduleEntity.setStartTime(scheduleRequest.getStartTime());
+            scheduleEntity.setEndTime(scheduleRequest.getEndTime());
             scheduleEntity.setPrice(scheduleRequest.getPrice());
             scheduleEntity.setFilmEntity(filmEntity);
             filmEntity.getScheduleEntities().add(scheduleEntity);

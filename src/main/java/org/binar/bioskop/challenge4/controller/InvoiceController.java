@@ -43,7 +43,7 @@ public class InvoiceController {
     public ResponseEntity<?> fileDownloadJasper(@RequestParam(value = "filename") String filename) throws IOException,  JRException {
           try{
               FileDataDB fileDataDB = invoiceService.generateFileInvoice(filename);
-              System.out.println(fileDataDB+"file ada");
+              log.info(fileDataDB+"file ada");
               return ResponseEntity.ok().contentType(MediaType.parseMediaType(fileDataDB.getFileType()))
               .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename\"" + filename + "\"")
               .body(new ByteArrayResource(fileDataDB.getData()));

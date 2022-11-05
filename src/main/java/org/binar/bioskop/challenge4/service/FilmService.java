@@ -10,15 +10,15 @@ import java.util.List;
 public interface FilmService {
 
     FilmEntity create (FilmEntity filmEntity);
-    FilmEntity update(String film_code, FilmEntity filmEntity);
-    Boolean delete(String film_code);
+    FilmEntity update(String filmCode, FilmEntity filmEntity);
+    Boolean delete(String filmCode);
 
     List<FilmEntity> findAll();
-    FilmEntity findById(String film_code);
+    FilmEntity findById(String filmCode);
 
     List<FilmEntity> getFilmNow();
 
-    FilmEntity getFindSchedule(String film_code);
+    FilmEntity getFindSchedule(String filmCode);
 
     ScheduleEntity setSchedules(ScheduleRequest scheduleRequest);
 

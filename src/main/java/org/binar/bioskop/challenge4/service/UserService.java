@@ -1,6 +1,5 @@
 package org.binar.bioskop.challenge4.service;
 
-import org.binar.bioskop.challenge4.entity.Role;
 import org.binar.bioskop.challenge4.entity.UserEntity;
 
 import java.util.List;

@@ -40,7 +40,7 @@ public class FirebaseMessagingService {
                 .putAllData(note.getData())
                 .build();
         log.info(firebaseMessaging.send(message));
-        log.info("Send Firebase Messaging");
+        log.info("Send Firebase Messaging Success");
         return firebaseMessaging.send(message);
     }
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/api")
 public class FirebaseController {
 
     private final FirebaseMessagingService firebaseService;
@@ -17,7 +18,7 @@ public class FirebaseController {
         this.firebaseService = firebaseService;
     }
 
-    @RequestMapping("/send-notification")
+    @PostMapping("/send-notification")
     @ResponseBody
     public String sendNotification(@RequestBody FirebaseNote note,
                                    @RequestParam String token) throws FirebaseMessagingException {
